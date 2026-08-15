@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#070A12">
+<title>BATTLE RUSH</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="splash" class="splash">
+  <div class="splash-inner">
+    <div class="splash-logo">BATTLE<br><span>RUSH</span></div>
+    <div class="tag">ENTER THE BATTLEFIELD</div>
+    <div class="loader"></div>
+  </div>
+</div>
+
+<div id="auth" class="auth-screen hidden">
+  <div class="auth-box">
+    <div class="logo-big">BATTLE<br><span>RUSH</span></div>
+    <div class="tag">ENTER THE BATTLEFIELD</div>
+    <div class="auth-card">
+      <div id="loginForm">
+        <h2>Welcome Back</h2>
+        <p class="muted">Login to your tournament account.</p>
+        <div class="field"><label>Mobile / Email</label><input id="loginId" placeholder="Enter mobile or email"></div>
+        <div class="field"><label>Password</label><input id="loginPass" type="password" placeholder="Enter password"></div>
+        <div id="loginErr" class="error"></div>
+        <button class="btn primary" style="width:100%" onclick="login()">LOGIN</button>
+        <p class="switch"><span class="link" onclick="showSignup()">Create Account</span> · <span class="link" onclick="demoForgot()">Forgot Password?</span></p>
+      </div>
+      <div id="signupForm" class="hidden">
+        <h2>Create Account</h2>
+        <p class="muted">Create your demo Battle Rush profile.</p>
+        <div class="field"><label>Full Name</label><input id="sName" placeholder="Full name"></div>
+        <div class="field"><label>Username</label><input id="sUser" placeholder="Unique username"></div>
+        <div class="field"><label>Mobile / Email</label><input id="sId" placeholder="Mobile or email"></div>
+        <div class="field"><label>Password</label><input id="sPass" type="password" placeholder="Password"></div>
+        <div class="field"><label>Confirm Password</label><input id="sConfirm" type="password" placeholder="Confirm password"></div>
+        <div id="signupErr" class="error"></div>
+        <button class="btn primary" style="width:100%" onclick="signup()">CREATE ACCOUNT</button>
+        <p class="switch">Already have an account? <span class="link" onclick="showLogin()">Login</span></p>
+      </div>
+    </div>
+    <p class="muted" style="font-size:10px;text-align:center;margin-top:12px">Frontend demo only • localStorage authentication is not secure.</p>
+  </div>
+</div>
+
+<div id="app" class="hidden">
+  <main class="container">
+    <header class="topbar">
+      <div class="brand">BATTLE <span>RUSH</span></div>
+      <div class="top-actions">
+        <button class="icon" onclick="navigate('notifications')">🔔<i id="notifyDot" class="notify-dot"></i></button>
+        <button class="avatar" onclick="navigate('profile')" id="topAvatar">BR</button>
+      </div>
+    </header>
+    <div id="view"></div>
+  </main>
+  <nav class="bottom">
+    <button class="nav active" data-nav="home" onclick="navigate('home')"><span class="ico">⌂</span>HOME</button>
+    <button class="nav" data-nav="tournaments" onclick="navigate('tournaments')"><span class="ico">⚔</span>TOURNAMENTS</button>
+    <button class="nav" data-nav="mygames" onclick="navigate('mygames')"><span class="ico">🎮</span>MY GAMES</button>
+    <button class="nav" data-nav="leaderboard" onclick="navigate('leaderboard')"><span class="ico">🏆</span>LEADERBOARD</button>
+    <button class="nav" data-nav="profile" onclick="navigate('profile')"><span class="ico">●</span>PROFILE</button>
+  </nav>
+</div>
+
+<div id="modalBg" class="modal-bg hidden"><div id="modal" class="modal"></div></div>
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
