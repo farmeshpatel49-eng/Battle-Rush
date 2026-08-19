@@ -29,20 +29,22 @@
         <div class="field"><label>Password</label><input id="loginPass" type="password" placeholder="Enter password"></div>
         <div id="loginErr" class="error"></div>
         <button class="btn primary" style="width:100%" onclick="login()">LOGIN</button>
-        <p class="switch">Don't have an account? <span class="link" onclick="showSignup()">Sign Up</span></p>
+        <p class="switch"><span class="link" onclick="showSignup()">Create Account</span> · <span class="link" onclick="demoForgot()">Forgot Password?</span></p>
       </div>
       <div id="signupForm" class="hidden">
         <h2>Create Account</h2>
-        <p class="muted">Join the gaming arena.</p>
-        <div class="field"><label>Full Name</label><input id="regName" placeholder="Enter full name"></div>
-        <div class="field"><label>Mobile / Email</label><input id="regId" placeholder="Enter mobile or email"></div>
-        <div class="field"><label>In-Game Name (IGN)</label><input id="regIgn" placeholder="Free Fire Username"></div>
-        <div class="field"><label>Password</label><input id="regPass" type="password" placeholder="Create password"></div>
+        <p class="muted">Create your demo Battle Rush profile.</p>
+        <div class="field"><label>Full Name</label><input id="sName" placeholder="Full name"></div>
+        <div class="field"><label>Username</label><input id="sUser" placeholder="Unique username"></div>
+        <div class="field"><label>Mobile / Email</label><input id="sId" placeholder="Mobile or email"></div>
+        <div class="field"><label>Password</label><input id="sPass" type="password" placeholder="Password"></div>
+        <div class="field"><label>Confirm Password</label><input id="sConfirm" type="password" placeholder="Confirm password"></div>
         <div id="signupErr" class="error"></div>
-        <button class="btn primary" style="width:100%" onclick="signup()">SIGN UP</button>
-        <p class="switch">Already registered? <span class="link" onclick="showLogin()">Login</span></p>
+        <button class="btn primary" style="width:100%" onclick="signup()">CREATE ACCOUNT</button>
+        <p class="switch">Already have an account? <span class="link" onclick="showLogin()">Login</span></p>
       </div>
     </div>
+    <p class="muted" style="font-size:10px;text-align:center;margin-top:12px">Frontend demo only • localStorage authentication is not secure.</p>
   </div>
 </div>
 
@@ -59,16 +61,15 @@
   </main>
   <nav class="bottom">
     <button class="nav active" data-nav="home" onclick="navigate('home')"><span class="ico">⌂</span>HOME</button>
-    <button class="nav" data-nav="tournaments" onclick="navigate('tournaments')"><span class="ico">⚔</span>MATCHES</button>
+    <button class="nav" data-nav="tournaments" onclick="navigate('tournaments')"><span class="ico">⚔</span>TOURNAMENTS</button>
     <button class="nav" data-nav="mygames" onclick="navigate('mygames')"><span class="ico">🎮</span>MY GAMES</button>
-    <button class="nav" data-nav="wallet" onclick="navigate('wallet')"><span class="ico">💰</span>WALLET</button>
+    <button class="nav" data-nav="leaderboard" onclick="navigate('leaderboard')"><span class="ico">🏆</span>LEADERBOARD</button>
     <button class="nav" data-nav="profile" onclick="navigate('profile')"><span class="ico">●</span>PROFILE</button>
   </nav>
 </div>
 
-<div id="modalOverlay" class="modal-overlay hidden">
-  <div id="modalContent" class="modal-box"></div>
-</div>
+<div id="modalBg" class="modal-bg hidden"><div id="modal" class="modal"></div></div>
+<div id="toast" class="toast"></div>
 
 <script src="script.js"></script>
 </body>
